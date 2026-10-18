@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#f6f2e9">
+	<title>서울 전세가 살펴보기</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="app.js" defer></script>
+</head>
+<body>
+	<main class="page-shell">
+		<header class="masthead">
+			<a class="wordmark" href="./" aria-label="서울 전세가 살펴보기 홈">
+				<span class="wordmark-mark" aria-hidden="true">ㅅ</span>
+				서울 주거 데이터
+			</a>
+			<span class="masthead-note">JEONSE PRICE INDEX <span>·</span> SEOUL</span>
+		</header>
+
+		<section class="intro" aria-labelledby="page-title">
+			<p class="eyebrow"><span class="eyebrow-dot"></span> 서울 전세 데이터 탐색</p>
+			<h1 id="page-title">서울 전세가<br><span>살펴보기</span></h1>
+			<p class="intro-copy">자치구·동·주택유형을 선택하면 평균 전세가와 거래 건수를 확인할 수 있습니다.</p>
+			<div class="intro-index" aria-hidden="true"><span>01</span><i></i><span>25개 자치구</span></div>
+		</section>
+
+		<section class="explorer" aria-labelledby="explorer-title">
+			<div class="section-heading">
+				<div>
+					<p class="eyebrow">지역과 유형 선택</p>
+					<h2 id="explorer-title">어디의 전세가를 찾으세요?</h2>
+				</div>
+				<span class="section-number">01 / SEARCH</span>
+			</div>
+
+			<form id="search-form" class="search-form">
+				<div class="field field-district">
+					<label for="district">자치구</label>
+					<select id="district" name="district" required disabled>
+						<option value="">자치구 선택</option>
+					</select>
+				</div>
+				<div class="field">
+					<label for="neighborhood">동</label>
+					<select id="neighborhood" name="neighborhood" required disabled>
+						<option value="">자치구를 먼저 선택하세요</option>
+					</select>
+				</div>
+				<div class="field">
+					<label for="building-type">주택유형</label>
+					<select id="building-type" name="buildingType" required disabled>
+						<option value="">주택유형 선택</option>
+					</select>
+				</div>
+				<button class="search-button" type="submit" disabled>
+					<span>조회하기</span><span class="button-arrow" aria-hidden="true">↗</span>
+				</button>
+			</form>
+			<p id="data-status" class="data-status" role="status" aria-live="polite">데이터를 불러오는 중입니다.</p>
+		</section>
+
+		<section id="results" class="results" aria-live="polite" aria-atomic="true" hidden>
+			<div class="results-heading">
+				<div>
+					<p class="eyebrow">검색 결과</p>
+					<h2 id="result-title">선택한 조건의 전세 데이터</h2>
+				</div>
+				<span class="result-period">평균 기준</span>
+			</div>
+			<div id="result-content"></div>
+		</section>
+
+		<footer class="page-footer">
+			<span>SEOUL · JEONSE</span>
+			<span>서울의 주거 데이터를 한눈에</span>
+		</footer>
+	</main>
+</body>
+</html>
