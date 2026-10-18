@@ -5,7 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#f6f2e9">
 	<title>서울 전세가 살펴보기</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 	<link rel="stylesheet" href="style.css">
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
 	<script src="app.js" defer></script>
 </head>
 <body>
@@ -19,10 +21,24 @@
 		</header>
 
 		<section class="intro" aria-labelledby="page-title">
-			<p class="eyebrow"><span class="eyebrow-dot"></span> 서울 전세 데이터 탐색</p>
-			<h1 id="page-title">서울 전세가<br><span>살펴보기</span></h1>
-			<p class="intro-copy">자치구·동·주택유형을 선택하면 평균 전세가와 거래 건수를 확인할 수 있습니다.</p>
-			<div class="intro-index" aria-hidden="true"><span>01</span><i></i><span>25개 자치구</span></div>
+			<div class="intro-copy-block">
+				<p class="eyebrow"><span class="eyebrow-dot"></span> 서울 전세 데이터 탐색</p>
+				<h1 id="page-title">서울 전세가<br><span>살펴보기</span></h1>
+				<p class="intro-copy">자치구·동·주택유형을 선택하면 평균 전세가와 거래 건수를 확인할 수 있습니다.</p>
+				<div class="intro-index" aria-hidden="true"><span>01</span><i></i><span>25개 자치구</span></div>
+			</div>
+			<section id="map-panel" class="map-panel intro-map" aria-labelledby="map-title">
+				<div class="map-heading">
+					<div>
+						<p class="eyebrow">지역별 전세가 분석</p>
+						<h3 id="map-title">서울 전역 · 법정동별 평균 전세가</h3>
+					</div>
+					<span class="map-caption">LEGAL-DONG LEVEL</span>
+				</div>
+				<div id="district-map" class="district-map" role="region" aria-label="서울 법정동별 평균 전세가 지도"></div>
+				<p id="map-method-note" class="map-method-note">모든 주택유형의 동별 평균입니다. 평균가는 거래건수로 가중하며 현재 CSV는 단일 기간 집계입니다. 법정동 경계 기준: 2015. <a href="https://github.com/southkorea/seoul-maps" target="_blank" rel="noopener noreferrer">경계 데이터 출처</a> (Apache 2.0)</p>
+				<p id="map-error" class="map-error" hidden>지도를 불러오지 못했습니다. 네트워크 연결을 확인해 주세요.</p>
+			</section>
 		</section>
 
 		<section class="explorer" aria-labelledby="explorer-title">
